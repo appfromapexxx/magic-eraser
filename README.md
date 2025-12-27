@@ -49,7 +49,7 @@
 
 ### 1. 安裝 uv (如果尚未安裝)
 
-**MacOS / Windows:**
+**MacOS:**
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -103,7 +103,35 @@ uv run server.py
 - **Port**：預設使用 `5001` 埠，若被佔用請修改 `server.py`。
 - **部署**：此專案需 Python 後端運行，無法部署至靜態託管服務 (如 GitHub Pages)。
 
-## 🤝 貢獻
+## � Windows 使用者注意事項
+
+### PyTorch DLL 載入失敗
+
+如果執行時出現以下錯誤：
+
+```text
+Microsoft Visual C++ Redistributable is not installed...
+OSError: [WinError 126] 找不到指定的模組。
+```
+
+**解決方法**：請先安裝 Microsoft Visual C++ Redistributable：
+
+1. 下載：<https://aka.ms/vs/17/release/vc_redist.x64.exe>
+2. 執行安裝程式並完成安裝
+3. **重新開啟 PowerShell**
+4. 再次執行 `uv run server.py`
+
+### uv 指令無法直接使用
+
+如果 `uv` 指令找不到，可以使用完整路徑：
+
+```powershell
+C:\Users\<你的使用者名稱>\.local\bin\uv.exe run server.py
+```
+
+或將 `C:\Users\<你的使用者名稱>\.local\bin` 加入系統環境變數 `PATH` 中。
+
+## �🤝 貢獻
 
 歡迎提交 Pull Request 或 Issue！
 
